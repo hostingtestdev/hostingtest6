@@ -4,12 +4,12 @@ COPY frontend/helloworld/package.json /home/app/frontend/package.json
 RUN npm install
 RUN npm install -g @angular/cli
 COPY frontend/helloworld/ .
-RUN npm run build --prod
-FROM nginx:alpine
-COPY --from=node /app/dist/angular-app /usr/share/nginx/html
+#RUN npm run build --prod
+#FROM nginx:alpine
+#COPY --from=node /app/dist/angular-app /usr/share/nginx/html
 
 EXPOSE 4200
-CMD ["npm", "start"]
+#CMD ["npm", "start"]
 CMD ng serve --host 0.0.0.0 --disable-host-check
 
 #FROM node:20.4.0-buster as angular-build
